@@ -33,12 +33,6 @@ public class CategoryReactiveRepositoryIT {
     @Autowired
     CategoryReactiveRepository categoryReactiveRepository;
 
-    @Autowired
-    RecipeReactiveRepository recipeReactiveRepository;
-
-    @Autowired
-    UnitOfMeasureReactiveRepository unitOfMeasureReactiveRepository;
-
     @Before
     public void setUp() throws Exception {
         // Reset the database
@@ -48,8 +42,7 @@ public class CategoryReactiveRepositoryIT {
 
         // Mimic what the Spring context would do
         RecipeBootstrap recipeBootstrap =
-                new RecipeBootstrap(categoryRepository, recipeRepository, unitOfMeasureRepository,
-                        categoryReactiveRepository, recipeReactiveRepository, unitOfMeasureReactiveRepository);
+                new RecipeBootstrap(categoryRepository, recipeRepository, unitOfMeasureRepository);
 
         recipeBootstrap.onApplicationEvent(null);
     }

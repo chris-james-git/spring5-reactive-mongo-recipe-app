@@ -35,12 +35,6 @@ public class UnitOfMeasureReactiveRepositoryIT {
     RecipeRepository recipeRepository;
 
     @Autowired
-    CategoryReactiveRepository categoryReactiveRepository;
-
-    @Autowired
-    RecipeReactiveRepository recipeReactiveRepository;
-
-    @Autowired
     UnitOfMeasureReactiveRepository unitOfMeasureReactiveRepository;
 
     @Before
@@ -52,8 +46,7 @@ public class UnitOfMeasureReactiveRepositoryIT {
 
         // Mimic what the Spring context would do
         RecipeBootstrap recipeBootstrap =
-                new RecipeBootstrap(categoryRepository, recipeRepository, unitOfMeasureRepository,
-                        categoryReactiveRepository, recipeReactiveRepository, unitOfMeasureReactiveRepository);
+                new RecipeBootstrap(categoryRepository, recipeRepository, unitOfMeasureRepository);
 
         recipeBootstrap.onApplicationEvent(null);
     }
